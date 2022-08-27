@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<br>
+<div class="card text-center bg-warning">
+  <h1>Group Game Library</h1>
+</div>
+<br>
+
+<div class="container">
+  <div class="row">
+
+    <!-- Column 1 -->
+    <div class="container">
+
+      {% for game in games %}
+      <div class="card border-dark mb-3" style="width: 18rem;">
+        <img src={{ game.image }} class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title">{{ game.title }}</h3>
+          <hr>
+          <p class="card-text"><b>Genre:</b> {{ game.genre }}</p>
+          <p class="card-text"><b>Player Count</b>: {{ game.min }} <b>to</b> {{ game.max }}</p>
+          <p class="card-text"><b>Length:</b> {{ game.length }}</p>
+          <p class="card-text"><b>Type:</b> {{ game.type }}</p>
+          <p class="card-text"><b>Owner:</b> {{ game.owner }}</p>
+          <p class="card-text"><small class="text-whtie">Last updated {{ game.timestamp }}</small></p>
+          <a href="#" class="btn btn-dark">Edit</a>
+          <a href="#" class="btn btn-warning">Delete</a>
+        </div>
+      </div>      
+      <hr />
+      {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}
