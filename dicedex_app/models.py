@@ -22,6 +22,8 @@ class Game(models.Model):
         default=TYPES[0][0]
     )
     owner = models.CharField(max_length=100, default="IG88")
+    note = models.CharField(max_length=1000, default="None")
+    link = models.CharField(max_length=1000, default="None")
     timestamp = models.DateField(auto_now_add=True)
     # user = models.ForeignKey(User, on_delete=models.CASCADE)
 
