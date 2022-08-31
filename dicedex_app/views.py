@@ -15,5 +15,5 @@ def home(request):
 
 
 def library_index(request):
-    games = Game.objects.filter()
+    games = Game.objects.order_by('title')
     return render(request, 'library/index.html', { 'games': games })
