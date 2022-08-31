@@ -8,18 +8,26 @@
 </div>
 <br>
 
-    <!-- Column 1 -->
-    <div class="container">
-      <div class="row row-cols-1 row-cols-md-3 g-4">
+<!-- Add Button -->
+<container>
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <a href="http://127.0.0.1:8000/games/create/" class="btn btn-primary">Add New Game</a>
+  </div>
+</container>
+<br>
+
+    <!-- Games -->
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
 
       {% for game in games %}
-      <div class="col">
+    <div class="col">
       <div class="card border-dark mb-3 mx-auto h-100" >
         <img src={{ game.image }} class="card-img-top" alt="...">
         <div class="card-body">
           <h4 class="card-title">{{ game.title }}</h4>
           <p class="card-text"><b>Owner:</b> {{ game.owner }}</p>
-          <a href="#" class="btn btn-primary">Add to Game Night List</a>
+          <a href="#" class="btn btn-secondary">Add to Game Night List</a>
           <hr>
           <p class="card-text"><b>Genre:</b> {{ game.genre }}</p>
           <p class="card-text"><b>Player Count</b>: {{ game.min }} <b>to</b> {{ game.max }}</p>
@@ -34,11 +42,11 @@
           <p class="text-muted">Last Updated: {{ game.timestamp }}</p>
         </div>
       </div>   
-      </div> 
+    </div> 
       {% endfor %}
 
-      </div> 
-    </div>
-    <hr/>
+  </div> 
+</div>
+<hr/>
 
 {% endblock %}
