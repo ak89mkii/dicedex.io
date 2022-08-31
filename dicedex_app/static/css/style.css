@@ -7,8 +7,9 @@
 
 body {
     background-color: rgb(27, 27, 27);
-    /* width: 18hv; */
+    color: black;
 }
+
 
 #title {
     background-color: rgb(246, 238, 131);
@@ -34,9 +35,7 @@ body {
     }
 }
 
-.img {
-    border-style: solid;
-    border-color: black;
-    border-width: 100px;
+.GameCreate {
+    color: blue;
 }
 
