@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<div id="title">
+  <p>Delete Game Confirmation!</p>
+</div>
+<br>
+
+<div class="container">
+    <div class="card mb-5">
+    <div class="card-body">
+    <p>Are you sure you want to delete <span class="">"{{ object.title }}</span>"?</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Yes - Delete!" class="btn btn-danger">
+        <a class="btn btn-dark" href="{% url 'library' %}">Cancel</a>
+    </form>
+    </div>
+    </div>
+</div>
+{% endblock %}

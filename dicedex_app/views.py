@@ -29,7 +29,7 @@ class GameCreate(CreateView):
 
 class GameUpdate(UpdateView):
   model = Game
-  fields = ['skill', 'setting', 'leveling', 'image', 'color']
+  fields = ['title', 'genre', 'min', 'max', 'length', 'image', 'type', 'owner', 'note', 'link']
 
 class GameDelete(DeleteView):
   model = Game
