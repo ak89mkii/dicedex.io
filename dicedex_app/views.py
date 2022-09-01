@@ -15,6 +15,9 @@ from django.contrib.auth.models import Group
 def home(request):
     return render(request, 'home.html')
 
+def groups(request):
+    return render(request, 'groups.html')
+
 @login_required
 def library_index_01(request):
     games = Game.objects.filter(group=1).order_by('title')
@@ -43,7 +46,7 @@ class GameUpdate(LoginRequiredMixin, UpdateView):
 
 class GameDelete(LoginRequiredMixin, DeleteView):
   model = Game
-  success_url = '/library/'
+  success_url = '/groups/'
 
 
 # Signup

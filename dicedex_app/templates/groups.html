@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<br>
+<div id="title">
+  <p>Choose a Group</p>
+</div>
+<br>
+
+<!-- Add Button -->
+<!-- <container> -->
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xxl-2 g-4">
+            <div class="col">
+                <div class="card text-bg-warning border-dark mb-3 mx-auto h-100" >
+                    <a href="http://127.0.0.1:8000/library_01/">
+                        <img src="https://i.pinimg.com/originals/70/2c/f1/702cf1252ab8b00074270f0e4e287d15.gif" class="card-img-top" alt="...">
+                    </a>
+                    <div class="card-body">
+                        Coffee Group
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card text-bg-warning border-dark mb-3 mx-auto h-100" >
+                    <a href="http://127.0.0.1:8000/library_02/">
+                        <img src="https://c.tenor.com/HU0yEZx7cOsAAAAd/the-empire-strikes-back-planet-hoth.gif" class="card-img-top" alt="...">
+                    </a>    
+                    <div class="card-body">
+                        Hoth Group
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- </container> -->
+<br>
+
+{% endblock %}
