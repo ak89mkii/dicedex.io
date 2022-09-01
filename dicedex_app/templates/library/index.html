@@ -2,11 +2,19 @@
 {% block content %}
 {% load static %}
 
+{% if context == 1 %}
 <br>
 <div id="title">
-  <p>Group Game Library</p>
+  <p>Coffee Group Game Library</p>
 </div>
 <br>
+{% else %}
+<br>
+<div id="title">
+  <p>Hoth Group Game Library</p>
+</div>
+<br>
+{% endif %}
 
 <!-- Add Button -->
 <!-- <container> -->
@@ -26,10 +34,10 @@
         <img src={{ game.image }} class="card-img-top" alt="...">
         <div class="card-body">
           <h4 class="card-title">{{ game.title }}</h4>
-          <p class="card-text"><b>Owner:</b> {{ game.owner }}</p>
+
           <a href="#" class="btn btn-secondary">Add to Game Night List</a>
           <hr>
-          <p class="card-text"><b>Genre:</b> {{ game.group }}</p>
+          <p class="card-text"><b>Genre:</b> {{ game.genre }}</p>
           <p class="card-text"><b>Player Count</b>: {{ game.min }} <b>to</b> {{ game.max }}</p>
           <p class="card-text"><b>Length:</b> {{ game.length }} <b>Minutes</b></p>
           <p class="card-text"><b>Type:</b> {{ game.type }}</p>

@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 urlpatterns = [
     path('', views.home, name='home'),
     # library
-    path('library/', views.library_index, name='library'),
+    path('library_01/', views.library_index_01, name='library_01'),
+    path('library_02/', views.library_index_02, name='library_02'),
     # signup
     path('accounts/signup/', views.signup, name='signup'),
 

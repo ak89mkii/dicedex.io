@@ -7,6 +7,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models.functions import Now
+from django.contrib.auth.models import Group
+
 
 # Create your views here.
 
@@ -14,15 +16,22 @@ def home(request):
     return render(request, 'home.html')
 
 @login_required
-def library_index(request):
-    games = Game.objects.order_by('title')
-    return render(request, 'library/index.html', { 'games': games })
+def library_index_01(request):
+    games = Game.objects.filter(group=1).order_by('title')
+    context = 1
+    return render(request, 'library/index.html', { 'games' : games, 'context' : context })
+
+@login_required
+def library_index_02(request):
+    games = Game.objects.filter(group=2).order_by('title')
+    context = 2
+    return render(request, 'library/index.html', { 'games' : games, 'context' : context })
 
 
 # Game
 class GameCreate(LoginRequiredMixin, CreateView):
   model = Game
-  fields = ['title', 'genre', 'min', 'max', 'length', 'image', 'type', 'owner', 'note', 'link']
+  fields = ['title', 'genre', 'min', 'max', 'length', 'image', 'type', 'group', 'note', 'link']
   
   def form_valid(self, form):
     form.instance.user = self.request.user  
@@ -30,7 +39,7 @@ class GameCreate(LoginRequiredMixin, CreateView):
 
 class GameUpdate(LoginRequiredMixin, UpdateView):
   model = Game
-  fields = ['title', 'genre', 'min', 'max', 'length', 'image', 'type', 'owner', 'note', 'link']
+  fields = ['title', 'genre', 'min', 'max', 'length', 'image', 'type', 'group', 'note', 'link']
 
 class GameDelete(LoginRequiredMixin, DeleteView):
   model = Game

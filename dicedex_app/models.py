@@ -25,7 +25,8 @@ class Game(models.Model):
     note = models.CharField(max_length=1000, default="None")
     link = models.CharField(max_length=1000, default="None")
     timestamp = models.DateField(auto_now_add=True)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    # Also for "owner field"
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
 
 
