@@ -20,13 +20,13 @@ def groups(request):
 
 @login_required
 def library_index_01(request):
-    games = Game.objects.filter(group=1).order_by('title')
+    games = Game.objects.filter(coffee_group=True).order_by('title')
     context = 1
     return render(request, 'library/index.html', { 'games' : games, 'context' : context })
 
 @login_required
 def library_index_02(request):
-    games = Game.objects.filter(group=2).order_by('title')
+    games = Game.objects.filter(hoth_group=True).order_by('title')
     context = 2
     return render(request, 'library/index.html', { 'games' : games, 'context' : context })
 
@@ -34,7 +34,7 @@ def library_index_02(request):
 # Game
 class GameCreate(LoginRequiredMixin, CreateView):
   model = Game
-  fields = ['title', 'genre', 'min', 'max', 'length', 'image', 'type', 'group', 'note', 'link']
+  fields = ['title', 'genre', 'min', 'max', 'length', 'image', 'type', 'note', 'link', 'coffee_group', 'hoth_group']
   
   def form_valid(self, form):
     form.instance.user = self.request.user  
@@ -42,7 +42,7 @@ class GameCreate(LoginRequiredMixin, CreateView):
 
 class GameUpdate(LoginRequiredMixin, UpdateView):
   model = Game
-  fields = ['title', 'genre', 'min', 'max', 'length', 'image', 'type', 'group', 'note', 'link']
+  fields = ['title', 'genre', 'min', 'max', 'length', 'image', 'type', 'note', 'link', 'coffee_group', 'hoth_group']
 
 class GameDelete(LoginRequiredMixin, DeleteView):
   model = Game

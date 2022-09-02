@@ -21,13 +21,14 @@ class Game(models.Model):
         choices=TYPES,
         default=TYPES[0][0]
     )
-    # owner = models.CharField(max_length=100, default="IG88")
     note = models.CharField(max_length=1000, default="None")
     link = models.CharField(max_length=1000, default="None")
     timestamp = models.DateField(auto_now_add=True)
     # Also for "owner field"
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    group = models.ForeignKey(Group, on_delete=models.CASCADE)
+    # group = models.ForeignKey(Group, on_delete=models.CASCADE)
+    coffee_group = models.BooleanField(default=True)
+    hoth_group = models.BooleanField(default=True)
 
 
     def __str__(self):
