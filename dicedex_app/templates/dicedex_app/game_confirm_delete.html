@@ -14,8 +14,8 @@
             <br>
             <form action="" method="POST">
                 {% csrf_token %}
-                <input type="submit" value="Yes - Delete!" class="btn btn-danger">
-                <a class="btn btn-dark" href="{% url 'groups' %}">Cancel</a>
+                <input type="submit" value="Yes - Delete!" class="btn btn-warning">
+                <button onclick="history.back()" type="button" class="btn btn-dark">Cancel</button>              
             </form>
         </div>
     </div>
