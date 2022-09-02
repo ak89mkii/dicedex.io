@@ -29,6 +29,7 @@ class Game(models.Model):
     # group = models.ForeignKey(Group, on_delete=models.CASCADE)
     coffee_group = models.BooleanField(default=True)
     hoth_group = models.BooleanField(default=True)
+    gundam_group = models.BooleanField(default=True)
 
 
     def __str__(self):
