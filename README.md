@@ -40,6 +40,7 @@
 // https://stackoverflow.com/questions/16778819/django-how-to-sort-objects-alphabetically-by-first-letter-of-name-field
 // https://stackoverflow.com/questions/48548878/psycopg2-dataerror-invalid-input-syntax-for-integer-test-getting-error-when
 // https://bilgedemirkaya.medium.com/django-typeerror-field-id-expected-a-number-but-got-datetime-datetime-2020-d9a5c1cddc98
+// https://www.w3schools.com/jsref/met_his_back.asp
 #### Images References / Credits:
 #### Sounds References / Credits:
 #### Fonts / Credits:
