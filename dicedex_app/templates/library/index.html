@@ -56,8 +56,11 @@
           <p class="card-text"><b>Type:</b> {{ game.type }}</p>
           <p class="card-text"><b>Notes:</b> {{ game.note }}</p>
           <p class="card-text"><b>BGG Link:</b> <a href="{{ game.link }}">{{ game.link }}</a></p>
+          {% if game.user == user %}
           <a href="{% url 'games_update' game.id %}" class="btn btn-dark">Edit</a>
           <a href="{% url 'games_delete' game.id %}" class="btn btn-warning">Delete</a>
+          {% else %}
+          {% endif %}
         </div>
         <div class="card-footer">
           <p class="text-muted">Last Updated: {{ game.timestamp }}</p>

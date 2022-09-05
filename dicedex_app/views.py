@@ -15,6 +15,7 @@ from django.contrib.auth.models import Group
 def home(request):
     return render(request, 'home.html')
 
+@login_required
 def groups(request):
     return render(request, 'groups.html')
 
@@ -69,7 +70,7 @@ def signup(request):
     if form.is_valid():
       user = form.save()
       login(request, user)
-      return redirect('library')
+      return redirect('library/')
     else:
       error_message = 'Invalid sign up - try again'
   form = UserCreationForm()
