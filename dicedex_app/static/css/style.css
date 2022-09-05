@@ -5,6 +5,11 @@
     /* font-family: 'Nanum Brush Script', cursive; */
 }
 
+.nav-link {
+    font-size: 20px;
+    padding-right: 5px;
+}
+
 body {
     background-color: rgb(27, 27, 27);
     color: black;
