@@ -10,8 +10,12 @@
 .nav-link {
     font-size: 20px;
     padding-right: 5px;
+    color: black;
 }
 
+.form-check {
+    font-size: 20px;
+}
 
 /* All Pages */
 

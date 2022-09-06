@@ -14,7 +14,7 @@ class Game(models.Model):
     genre = models.CharField(max_length=100)
     min = models.CharField(max_length=100)
     max = models.CharField(max_length=100)
-    length = models.CharField(max_length=100)
+    length = models.IntegerField(max_length=100)
     image = models.CharField(max_length=1000)
     type = models.CharField(
         max_length=30,
