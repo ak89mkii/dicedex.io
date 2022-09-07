@@ -22,8 +22,10 @@ def groups(request):
 @login_required
 def library_index(request):
     games = Game.objects.filter(user=request.user)
+    l = request.user.groups.values_list('name',flat = True)
+    groups = list(l)
     context = 0
-    return render(request, 'library/index.html', { 'games' : games, 'context' : context })
+    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context })
 
 @login_required
 def library_index_01(request):

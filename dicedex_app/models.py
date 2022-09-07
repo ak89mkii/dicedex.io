@@ -14,7 +14,7 @@ class Game(models.Model):
     genre = models.CharField(max_length=100)
     min = models.CharField(max_length=100)
     max = models.CharField(max_length=100)
-    length = models.IntegerField(max_length=100)
+    length = models.IntegerField()
     image = models.CharField(max_length=1000)
     type = models.CharField(
         max_length=30,
@@ -37,3 +37,15 @@ class Game(models.Model):
 
     def get_absolute_url(self):
         return reverse('groups')
+
+
+class G_Group(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    group = models.ForeignKey(Group, on_delete=models.CASCADE)
+
+
+    # def __str__(self):
+    #     return self.group
+
+    # def get_absolute_url(self):
+    #     return reverse('groups')

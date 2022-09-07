@@ -43,6 +43,7 @@
 // https://www.w3schools.com/jsref/met_his_back.asp
 // https://stackoverflow.com/questions/69008290/logging-out-on-django-web-app-redirects-to-django-admin-logout-page-whats-goin
 // https://docs.djangoproject.com/en/4.1/ref/models/fields/
+// https://stackoverflow.com/questions/2245895/is-there-a-simple-way-to-get-group-names-of-a-user-in-django
 #### Images References / Credits:
 #### Sounds References / Credits:
 #### Fonts / Credits:
