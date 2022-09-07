@@ -17,6 +17,9 @@
     font-size: 20px;
 }
 
+.dropdown-menu{ 
+    overflow: visible}
+
 /* All Pages */
 
 body {

@@ -13,37 +13,49 @@ from django.contrib.auth.models import Group
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    l = request.user.groups.values_list('name',flat = True)
+    groups = list(l)
+    context = 'Personal'
+    return render(request, 'home.html', { 'groups' : groups, 'context' : context })
 
 @login_required
 def groups(request):
-    return render(request, 'groups.html')
+    l = request.user.groups.values_list('name',flat = True)
+    groups = list(l)
+    context = 'Personal'
+    return render(request, 'groups.html', { 'groups' : groups, 'context' : context })
 
 @login_required
 def library_index(request):
     games = Game.objects.filter(user=request.user)
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
-    context = 0
+    context = 'Personal'
     return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context })
 
 @login_required
 def library_index_01(request):
     games = Game.objects.filter(coffee_group=True).order_by('title')
-    context = 1
-    return render(request, 'library/index.html', { 'games' : games, 'context' : context })
+    l = request.user.groups.values_list('name',flat = True)
+    groups = list(l)
+    context = 'Coffee'
+    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context })
 
 @login_required
 def library_index_02(request):
     games = Game.objects.filter(hoth_group=True).order_by('title')
-    context = 2
-    return render(request, 'library/index.html', { 'games' : games, 'context' : context })
+    l = request.user.groups.values_list('name',flat = True)
+    groups = list(l)
+    context = 'Hoth'
+    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context })
 
 @login_required
 def library_index_03(request):
     games = Game.objects.filter(gundam_group=True).order_by('title')
-    context = 3
-    return render(request, 'library/index.html', { 'games' : games, 'context' : context })
+    l = request.user.groups.values_list('name',flat = True)
+    groups = list(l)
+    context = 'Gundam'
+    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context })
 
 
 # Game

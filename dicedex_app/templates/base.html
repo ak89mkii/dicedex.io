@@ -31,16 +31,25 @@
         
         <a class="nav-link" href="{% url 'groups' %}">Groups</a>
         <ul class="nav">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Lists</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Bring to Event</a></li>
-              <li><a class="dropdown-item" href="#">My Wishlist</a></li>
-            </ul>
-        </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Lists</a>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Bring to Event</a></li>
+                <li><a class="dropdown-item" href="#">My Wishlist</a></li>
+                </ul>
+            </li>
         </ul>
-        <a class="nav-link" href="{% url 'logout' %}">Options</a>
-        <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+        <ul class="nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ user }}</a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><p class="dropdown-item"><b>User Name</b>: {{ user }}</p></li>
+                    <li><p class="dropdown-item"><b>Group(s)</b>: {{ groups }}</p></li>
+                    <hr></hr>
+                    <li><a class="dropdown-item" href="{% url 'logout' %}"><b>Log Out</b></a></li>
+                </ul>
+            </li>
+        </ul>
         
         {% else %}
 
