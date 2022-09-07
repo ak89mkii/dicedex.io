@@ -3,7 +3,8 @@
 
 {% block content %}
 
-{% if context == 1 %}
+{% for group in groups %}
+{% if group == 'Coffee' and context == 1 %}
 <br>
 <div id="title">
   <p>Coffee Group Game Library</p>
@@ -21,13 +22,14 @@
   <p>Gundam Group Game Library</p>
 </div>
 <br>
-{% elif context == 0 %}
+{%  elif context == 0 and group == 'Coffee' %}
 <br>
 <div id="title">
   <p>Personal Collection Game Library</p>
 </div>
 <br>
 {% endif %}
+{% endfor %}
 
 <!-- Add Button -->
 <!-- <container> -->
