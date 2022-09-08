@@ -18,4 +18,8 @@ urlpatterns = [
     path('games/<int:pk>/update/', views.GameUpdate.as_view(), name='games_update'),
     path('games/<int:pk>/delete/', views.GameDelete.as_view(), name='games_delete'),
 
+    # themes
+    path('themes/create/', views.ThemeCreate.as_view(), name='themes_create'),
+    path('themes/<int:pk>/update/', views.ThemeUpdate.as_view(), name='themes_update'),
+
 ] 

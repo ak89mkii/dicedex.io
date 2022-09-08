@@ -1,7 +1,7 @@
 from django.shortcuts import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Game
+from .models import Game, Theme
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -15,8 +15,9 @@ from django.contrib.auth.models import Group
 def home(request):
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
-    context = 'Personal'
-    return render(request, 'home.html', { 'groups' : groups, 'context' : context })
+    switches = Theme.objects.order_by('color')
+    themes = Theme.objects.order_by('color').last()
+    return render(request, 'home.html', { 'groups' : groups, 'switches' : switches, 'themes' : themes })
 
 @login_required
 def groups(request):
@@ -74,6 +75,24 @@ class GameUpdate(LoginRequiredMixin, UpdateView):
 class GameDelete(LoginRequiredMixin, DeleteView):
   model = Game
   success_url = '/groups/'
+
+
+# Theme
+class ThemeCreate(LoginRequiredMixin, CreateView):
+  model = Theme
+  fields = ['color']
+  
+  def form_valid(self, form):
+    form.instance.user = self.request.user  
+    return super().form_valid(form)
+
+class ThemeUpdate(LoginRequiredMixin, UpdateView):
+  model = Theme
+  fields = ['color']
+
+class ThemeDelete(LoginRequiredMixin, DeleteView):
+  model = Theme
+  success_url = '/'
 
 
 # Signup

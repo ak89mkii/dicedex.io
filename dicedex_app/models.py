@@ -9,6 +9,12 @@ TYPES = (
     ('Expansion', 'Expansion')
 )
 
+COLORS = (
+    ('Dark', 'Dark'),
+    ('Light', 'Light')
+)
+
+
 class Game(models.Model):
     title = models.CharField(max_length=100)
     genre = models.CharField(max_length=100)
@@ -31,7 +37,6 @@ class Game(models.Model):
     hoth_group = models.BooleanField(default=True)
     gundam_group = models.BooleanField(default=True)
 
-
     def __str__(self):
         return self.title
 
@@ -39,13 +44,17 @@ class Game(models.Model):
         return reverse('groups')
 
 
-class G_Group(models.Model):
+class Theme(models.Model):
+    color = models.CharField(
+        max_length=30,
+        choices=COLORS,
+        default=COLORS[1][1]
+    )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    group = models.ForeignKey(Group, on_delete=models.CASCADE)
 
 
-    # def __str__(self):
-    #     return self.group
+    def __str__(self):
+        return self.color
 
-    # def get_absolute_url(self):
-    #     return reverse('groups')
+    def get_absolute_url(self):
+        return reverse('home')

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<div id="title">
+  <p>Delete Game Confirmation!</p>
+</div>
+<br>
+
+<div class="container">
+    <div class="card mb-5">
+        <div class="card-body">
+            <p>Are you sure you want to delete <span class="">"{{ object.color }}</span>"?</p>
+            <br>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Yes - Delete!" class="btn btn-warning">
+                <button onclick="history.back()" type="button" class="btn btn-dark">Cancel</button>              
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+{% endblock %}
