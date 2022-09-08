@@ -15,8 +15,10 @@ from django.contrib.auth.models import Group
 def home(request):
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
-    switches = Theme.objects.order_by('color')
-    themes = Theme.objects.order_by('color').last()
+    # Used for rendering "Mode" button. Need loop to render button that can be updated with db object id.
+    switches = Theme.objects.filter(user=request.user).order_by('color')
+    # References the last Theme entry to change the "background" color id.
+    themes = Theme.objects.filter(user=request.user).order_by('color').last()
     return render(request, 'home.html', { 'groups' : groups, 'switches' : switches, 'themes' : themes })
 
 @login_required
