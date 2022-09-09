@@ -1,4 +1,3 @@
-from django.shortcuts import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Game, Theme
@@ -26,7 +25,10 @@ def groups(request):
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
     context = 'Personal'
-    return render(request, 'groups.html', { 'groups' : groups, 'context' : context })
+    switches = Theme.objects.filter(user=request.user).order_by('color')
+    # References the last Theme entry to change the "background" color id.
+    themes = Theme.objects.filter(user=request.user).order_by('color').last()
+    return render(request, 'groups.html', { 'groups' : groups, 'context' : context, 'switches' : switches, 'themes' : themes })
 
 @login_required
 def library_index(request):
@@ -34,7 +36,10 @@ def library_index(request):
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
     context = 'Personal'
-    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context })
+    switches = Theme.objects.filter(user=request.user).order_by('color')
+    # References the last Theme entry to change the "background" color id.
+    themes = Theme.objects.filter(user=request.user).order_by('color').last()
+    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context, 'switches' : switches, 'themes' : themes })
 
 @login_required
 def library_index_01(request):
@@ -42,7 +47,10 @@ def library_index_01(request):
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
     context = 'Coffee'
-    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context })
+    switches = Theme.objects.filter(user=request.user).order_by('color')
+    # References the last Theme entry to change the "background" color id.
+    themes = Theme.objects.filter(user=request.user).order_by('color').last()
+    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context, 'switches' : switches, 'themes' : themes })
 
 @login_required
 def library_index_02(request):
@@ -50,7 +58,10 @@ def library_index_02(request):
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
     context = 'Hoth'
-    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context })
+    switches = Theme.objects.filter(user=request.user).order_by('color')
+    # References the last Theme entry to change the "background" color id.
+    themes = Theme.objects.filter(user=request.user).order_by('color').last()
+    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context, 'switches' : switches, 'themes' : themes })
 
 @login_required
 def library_index_03(request):
@@ -58,56 +69,59 @@ def library_index_03(request):
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
     context = 'Gundam'
-    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context })
+    switches = Theme.objects.filter(user=request.user).order_by('color')
+    # References the last Theme entry to change the "background" color id.
+    themes = Theme.objects.filter(user=request.user).order_by('color').last()
+    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context, 'switches' : switches, 'themes' : themes })
 
 
 # Game
 class GameCreate(LoginRequiredMixin, CreateView):
-  model = Game
-  fields = ['title', 'genre', 'min', 'max', 'length', 'image', 'type', 'note', 'link', 'coffee_group', 'hoth_group', 'gundam_group']
+    model = Game
+    fields = ['title', 'genre', 'min', 'max', 'length', 'image', 'type', 'note', 'link', 'coffee_group', 'hoth_group', 'gundam_group']
   
-  def form_valid(self, form):
-    form.instance.user = self.request.user  
-    return super().form_valid(form)
+    def form_valid(self, form):
+        form.instance.user = self.request.user  
+        return super().form_valid(form)
 
 class GameUpdate(LoginRequiredMixin, UpdateView):
-  model = Game
-  fields = ['title', 'genre', 'min', 'max', 'length', 'image', 'type', 'note', 'link', 'coffee_group', 'hoth_group', 'gundam_group']
+    model = Game
+    fields = ['title', 'genre', 'min', 'max', 'length', 'image', 'type', 'note', 'link', 'coffee_group', 'hoth_group', 'gundam_group']
 
 class GameDelete(LoginRequiredMixin, DeleteView):
-  model = Game
-  success_url = '/groups/'
+    model = Game
+    success_url = '/groups/'
 
 
 # Theme
 class ThemeCreate(LoginRequiredMixin, CreateView):
-  model = Theme
-  fields = ['color']
+    model = Theme
+    fields = ['color']
   
-  def form_valid(self, form):
-    form.instance.user = self.request.user  
-    return super().form_valid(form)
+    def form_valid(self, form):
+        form.instance.user = self.request.user  
+        return super().form_valid(form)
 
 class ThemeUpdate(LoginRequiredMixin, UpdateView):
-  model = Theme
-  fields = ['color']
+    model = Theme
+    fields = ['color']
 
 class ThemeDelete(LoginRequiredMixin, DeleteView):
-  model = Theme
-  success_url = '/'
+    model = Theme
+    success_url = '/'
 
 
 # Signup
 def signup(request):
-  error_message = ''
-  if request.method == 'POST':
-    form = UserCreationForm(request.POST)
-    if form.is_valid():
-      user = form.save()
-      login(request, user)
-      return redirect('library/')
-    else:
-      error_message = 'Invalid sign up - try again'
-  form = UserCreationForm()
-  context = {'form': form, 'error_message': error_message}
-  return render(request, 'registration/signup.html', context)
+    error_message = ''
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('library/')
+        else:
+            error_message = 'Invalid sign up - try again'
+    form = UserCreationForm()
+    context = {'form': form, 'error_message': error_message}
+    return render(request, 'registration/signup.html', context)   
