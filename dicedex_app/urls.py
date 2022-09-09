@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('home_logged_in', views.home_logged_in, name='home_logged_in'),
+
     path('groups/', views.groups, name='groups'),
     # library
     path('library/', views.library_index, name='library'),

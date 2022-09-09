@@ -52,9 +52,8 @@ class Theme(models.Model):
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-
     def __str__(self):
         return self.color
 
     def get_absolute_url(self):
-        return reverse('home')
+        return reverse('home_logged_in')

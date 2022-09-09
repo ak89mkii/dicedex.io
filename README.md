@@ -44,6 +44,9 @@
 // https://stackoverflow.com/questions/69008290/logging-out-on-django-web-app-redirects-to-django-admin-logout-page-whats-goin
 // https://docs.djangoproject.com/en/4.1/ref/models/fields/
 // https://stackoverflow.com/questions/2245895/is-there-a-simple-way-to-get-group-names-of-a-user-in-django
+// https://stackoverflow.com/questions/17069046/django-getting-first-item-that-belongs-to-a-model-object-in-a-manytomanyfield
+// https://stackoverflow.com/questions/43479994/models-not-showing-on-django-admin
+// https://stackoverflow.com/questions/66214822/bootstrap-5-dropdown-menu-go-out-off-to-the-right-of-the-screen
 #### Images References / Credits:
 #### Sounds References / Credits:
 #### Fonts / Credits:

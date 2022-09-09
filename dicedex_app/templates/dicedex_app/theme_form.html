@@ -25,7 +25,7 @@
                     {{ form.as_table }}
                     </table>
                     <br>
-                    <input type="submit" value="Submit" class="btn btn-warning">
+                    <input action="{% url 'home_logged_in' %}" type="submit" value="Submit" class="btn btn-warning">
                     <!-- <a href="http://127.0.0.1:8000/groups/"> -->
                         <button onclick="history.back()" type="button" class="btn btn-dark">Cancel</button>                    
                     <!-- </a> -->
