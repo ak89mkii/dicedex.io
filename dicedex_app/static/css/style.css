@@ -21,8 +21,16 @@
 /* All Pages */
 
 body {
+    background-color: cornflowerblue;
+    color: black;
+}
+.dark {
     background-color: rgb(27, 27, 27);
     color: black;
+}
+
+#Dark {
+    background-color: rgb(27, 27, 27);
 }
 
 #Light {

@@ -12,16 +12,18 @@ from django.contrib.auth.models import Group
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html', { 'groups' : groups })   
+    not_form = 'not_form'
+    return render(request, 'home.html', { 'not_form' : not_form })   
 
 def home_logged_in(request):
+    not_form = 'not_form'
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
     # Used for rendering "Mode" button. Need loop to render button that can be updated with db object id.
     switches = Theme.objects.filter(user=request.user).order_by('color')
     # References the last Theme entry to change the "background" color id.
     themes = Theme.objects.filter(user=request.user).order_by('color').last()
-    return render(request, 'home_logged_in.html', { 'groups' : groups, 'switches' : switches, 'themes' : themes })
+    return render(request, 'home_logged_in.html', { 'groups' : groups, 'switches' : switches, 'themes' : themes, not_form : 'not_form' })
 
 
 @login_required

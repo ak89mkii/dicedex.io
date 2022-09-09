@@ -13,8 +13,9 @@
     <title>DiceDex.io</title>
 </head>
 
-<body id='{{ themes.color }}'>
+<body id='{{ themes.color }}' class='dark'>
     <header id="menu">
+    {% if not_form == 'not_form' %}
     <nav class="navbar ">
     <div class="container"> 
         <a href="http://127.0.0.1:8000/" style="text-decoration: none; color: black">
@@ -28,7 +29,7 @@
         <div class="form-check form-switch">
             <a href="http://127.0.0.1:8000/themes/create/" class="btn btn-dark">
             <label class="form-check-label" for="flexSwitchCheckChecked">Dark Mode</label></a>
-        </div>        
+        </div>     
         {% else %}
         {% for switch in switches %}
         <div class="form-check form-switch">
@@ -71,6 +72,7 @@
         {% endif %}
     </div>
     </nav>
+    {% endif %}    
     </header>
     <main>
         {% block content %}
