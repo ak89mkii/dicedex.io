@@ -15,6 +15,7 @@ def home(request):
     not_form = 'not_form'
     return render(request, 'home.html', { 'not_form' : not_form })   
 
+@login_required
 def home_logged_in(request):
     not_form = 'not_form'
     l = request.user.groups.values_list('name',flat = True)
