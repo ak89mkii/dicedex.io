@@ -1,13 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Log In</h1>
+{% if object %}
+<br>
+<div id="title">
+    <p>Log In</p>
+</div>
+<br>
+{% else %}
+<br>
+<div id="title">
+    <p>Log In</p>
+</div>
+<br>
+{% endif %}
 
-<form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" class="btn btn-warning" value="login">
-    <input type="hidden" name="next" value="{{ next }}">
-</form>
+{% if error_message %}<p class="red-text">{{ error_message }}</p>{% endif %}
+
+<div class="container">
+    <div class="card mb-3">
+        <img src="https://lolstatic-a.akamaihd.net/frontpage/apps/prod/rg-mechs-vs-minions/en_US/a8667cf30625bbadf4c0d1bb266ac75613f69b3f/assets/img/share/mechs-vs-minions-1200x630.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-warning" value="Login">
+          </form>
+          <br>
+        </div>
+    </div>
+</div>
 <br>
 {% endblock %}
