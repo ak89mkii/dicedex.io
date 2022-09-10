@@ -28,10 +28,7 @@
 #### Deployment:
 // https://devcenter.heroku.com/articles/procfile
 // https://devcenter.heroku.com/articles/python-gunicorn
-// https://www.youtube.com/watch?v=SBBzVbZBOvc
-// https://pypi.org/project/whitenoise/#description
-// https://pypi.org/project/django-heroku
-// https://devcenter.heroku.com/articles/django-app-configuration
+//
 #### Depoyment Troubleshooting:
 //
 #### Information References:
@@ -47,6 +44,7 @@
 // https://stackoverflow.com/questions/17069046/django-getting-first-item-that-belongs-to-a-model-object-in-a-manytomanyfield
 // https://stackoverflow.com/questions/43479994/models-not-showing-on-django-admin
 // https://stackoverflow.com/questions/66214822/bootstrap-5-dropdown-menu-go-out-off-to-the-right-of-the-screen
+// https://medium.com/swlh/how-to-style-your-django-forms-7e8463aae4fa
 #### Images References / Credits:
 #### Sounds References / Credits:
 #### Fonts / Credits:
