@@ -45,7 +45,9 @@
 // https://stackoverflow.com/questions/43479994/models-not-showing-on-django-admin
 // https://stackoverflow.com/questions/66214822/bootstrap-5-dropdown-menu-go-out-off-to-the-right-of-the-screen
 // https://medium.com/swlh/how-to-style-your-django-forms-7e8463aae4fa
+// https://www.geeksforgeeks.org/django-creating-a-404-error-page/
+// https://stackoverflow.com/questions/5836674/why-does-debug-false-setting-make-my-django-static-files-access-fail
 #### Images References / Credits:
 #### Sounds References / Credits:
 #### Fonts / Credits:
-// 
+// https://fonts.google.com/specimen/Press+Start+2P/tester

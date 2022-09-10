@@ -22,3 +22,6 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
 
 ]
+
+handler404 = 'dicedex_app.views.page_not_found_view'
+

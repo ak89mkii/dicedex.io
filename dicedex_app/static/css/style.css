@@ -76,3 +76,7 @@ body {
     }
 }
 
+/*  Error 404  */
+.error { 
+    font-family: 'Press Start 2P', cursive;
+}
