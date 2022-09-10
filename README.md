@@ -30,7 +30,7 @@
 // https://devcenter.heroku.com/articles/python-gunicorn
 //
 #### Depoyment Troubleshooting:
-//
+//https://devcenter.heroku.com/articles/django-app-configuration
 #### Information References:
 // https://stackoverflow.com/questions/22063748/django-get-returned-more-than-one-topic
 // https://stackoverflow.com/questions/37287153/how-to-get-images-in-bootstraps-card-to-be-the-same-height-width
