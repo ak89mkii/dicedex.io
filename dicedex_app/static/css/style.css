@@ -35,13 +35,13 @@ body {
 }
 
 #Light {
-    background-color: white;
+    background-color: rgb(242, 242, 245);
 }
 
 
 #title {
     /* background-color: rgb(246, 238, 131); */
-    background-color: rgb(236, 188, 14);
+    background-color: #08f9a0;
     color: black;
     text-align: center;
     font-size: 40px;

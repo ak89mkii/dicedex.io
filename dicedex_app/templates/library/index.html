@@ -4,7 +4,7 @@
 {% block content %}
 
 {% for group in groups %}
-{% if group == context %}
+{% if group == context or group == context.0 %}
 
 {% if context == 'Coffee' %}
 <br>
@@ -24,10 +24,20 @@
   <p>Gundam Group Game Library</p>
 </div>
 <br>
-{% elif context == 'Personal' %}
+{% elif context.1 == 'Personal' %}
 <br>
 <div id="title">
   <p>Personal Collection Game Library</p>
+</div>
+<br>{% elif context.1 == 'Event' %}
+<br>
+<div id="title">
+  <p>Personal Collection Game Library</p>
+</div>
+<br>{% elif context.1 == 'Wishlist User' %}
+<br>
+<div id="title">
+  <p>Personal Wishlist</p>
 </div>
 <br>
 {% endif %}
@@ -51,17 +61,19 @@
         <div class="card-body">
           <h4 class="card-title">{{ game.title }}</h4>
           <p class="card-text"><b>Owner / User:</b> {{ game.user }} </p>
-          <div class="form-check form-switch">
-            <b><label class="form-check-label" for="flexSwitchCheckDefault">Add to Game Night List</label></b>
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-          </div>
           <hr>
+          {% if game.wishlist_user == False %}
           <p class="card-text"><b>Genre:</b> {{ game.genre }}</p>
           <p class="card-text"><b>Player Count</b>: {{ game.min }} <b>to</b> {{ game.max }}</p>
           <p class="card-text"><b>Length:</b> <b>~</b> {{ game.length }} <b>Minutes</b></p>
           <p class="card-text"><b>Type:</b> {{ game.type }}</p>
           <p class="card-text"><b>Notes:</b> {{ game.note }}</p>
-          <p class="card-text"><b>BGG Link:</b> <a href="{{ game.link }}">{{ game.link }}</a></p>
+          <p class="card-text"><b>Link:</b> <a href="{{ game.link }}">{{ game.link }}</a></p>
+          {% elif game.wishlist_user == True %}
+          <p class="card-text"><b>Cost:</b> {{ game.cost }}</p>
+          <p class="card-text"><b>Notes:</b> {{ game.note }}</p>
+          <p class="card-text"><b>Link:</b> <a href="{{ game.link }}">{{ game.link }}</a></p>
+          {% endif %}      
           {% if game.user == user %}
           <a href="{% url 'games_update' game.id %}" class="btn btn-dark">Edit</a>
           <a href="{% url 'games_delete' game.id %}" class="btn btn-warning">Delete</a>

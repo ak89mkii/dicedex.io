@@ -29,27 +29,30 @@ def home_logged_in(request):
 
 @login_required
 def groups(request):
+    not_form = 'not_form'
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
     context = 'Personal'
     switches = Theme.objects.filter(user=request.user).order_by('color')
     # References the last Theme entry to change the "background" color id.
     themes = Theme.objects.filter(user=request.user).order_by('color').last()
-    return render(request, 'groups.html', { 'groups' : groups, 'context' : context, 'switches' : switches, 'themes' : themes })
+    return render(request, 'groups.html', { 'groups' : groups, 'context' : context, 'switches' : switches, 'themes' : themes, not_form : 'not_form' })
 
 @login_required
 def library_index(request):
+    not_form = 'not_form'
     games = Game.objects.filter(user=request.user).order_by('title')
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
-    context = 'Personal'
+    context = ['Coffee', 'Personal']
     switches = Theme.objects.filter(user=request.user).order_by('color')
     # References the last Theme entry to change the "background" color id.
     themes = Theme.objects.filter(user=request.user).order_by('color').last()
-    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context, 'switches' : switches, 'themes' : themes })
+    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context, 'switches' : switches, 'themes' : themes, not_form : 'not_form' })
 
 @login_required
 def library_index_01(request):
+    not_form = 'not_form'
     games = Game.objects.filter(coffee_group=True).order_by('title')
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
@@ -57,10 +60,11 @@ def library_index_01(request):
     switches = Theme.objects.filter(user=request.user).order_by('color')
     # References the last Theme entry to change the "background" color id.
     themes = Theme.objects.filter(user=request.user).order_by('color').last()
-    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context, 'switches' : switches, 'themes' : themes })
+    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context, 'switches' : switches, 'themes' : themes, not_form : 'not_form' })
 
 @login_required
 def library_index_02(request):
+    not_form = 'not_form'
     games = Game.objects.filter(hoth_group=True).order_by('title')
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
@@ -68,10 +72,11 @@ def library_index_02(request):
     switches = Theme.objects.filter(user=request.user).order_by('color')
     # References the last Theme entry to change the "background" color id.
     themes = Theme.objects.filter(user=request.user).order_by('color').last()
-    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context, 'switches' : switches, 'themes' : themes })
+    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context, 'switches' : switches, 'themes' : themes, not_form : 'not_form' })
 
 @login_required
 def library_index_03(request):
+    not_form = 'not_form'
     games = Game.objects.filter(gundam_group=True).order_by('title')
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
@@ -79,13 +84,37 @@ def library_index_03(request):
     switches = Theme.objects.filter(user=request.user).order_by('color')
     # References the last Theme entry to change the "background" color id.
     themes = Theme.objects.filter(user=request.user).order_by('color').last()
-    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context, 'switches' : switches, 'themes' : themes })
+    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context, 'switches' : switches, 'themes' : themes , not_form : 'not_form'})
+    
+@login_required
+def event(request):
+    not_form = 'not_form'
+    games = Game.objects.filter(gundam_group=True).order_by('title')
+    l = request.user.groups.values_list('name',flat = True)
+    groups = list(l)
+    context = ['Coffee', 'Event']
+    switches = Theme.objects.filter(user=request.user).order_by('color')
+    # References the last Theme entry to change the "background" color id.
+    themes = Theme.objects.filter(user=request.user).order_by('color').last()
+    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context, 'switches' : switches, 'themes' : themes , not_form : 'not_form'})
+
+@login_required
+def wishlist_user(request):
+    not_form = 'not_form'
+    games = Game.objects.filter(wishlist_user=True, user=request.user).order_by('title')
+    l = request.user.groups.values_list('name',flat = True)
+    groups = list(l)
+    context = ['Coffee', 'Wishlist User']
+    switches = Theme.objects.filter(user=request.user).order_by('color')
+    # References the last Theme entry to change the "background" color id.
+    themes = Theme.objects.filter(user=request.user).order_by('color').last()
+    return render(request, 'library/index.html', { 'games' : games, 'groups' : groups, 'context' : context, 'switches' : switches, 'themes' : themes , not_form : 'not_form'})
 
 
 # Game
 class GameCreate(LoginRequiredMixin, CreateView):
     model = Game
-    fields = ['title', 'genre', 'min', 'max', 'length', 'image', 'type', 'note', 'link', 'coffee_group', 'hoth_group', 'gundam_group']
+    fields = ['title', 'genre', 'min', 'max', 'length', 'image', 'type', 'note', 'cost', 'link', 'event', 'wishlist_user', 'coffee_group', 'hoth_group', 'gundam_group']
   
     def form_valid(self, form):
         form.instance.user = self.request.user  
