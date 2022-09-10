@@ -46,9 +46,16 @@
 
 <!-- Add Button -->
 <!-- <container> -->
+  {% if context.1 != 'Event' %}
   <div class="d-grid gap-2 col-3 mx-auto">
     <a href="http://127.0.0.1:8000/games/create/" class="btn btn-primary btn-lg">Add New Game</a>
   </div>
+  {% elif context.1 == 'Event' %}
+  <div class="d-grid gap-2 col-3 mx-auto">
+    <a href="http://127.0.0.1:8000/library/" class="btn btn-primary btn-lg">Back to Library</a>
+  </div>
+  {% endif %}
+
 <!-- </container> -->
 <br>
 
@@ -72,7 +79,7 @@
           <p class="card-text"><b>Notes:</b> {{ game.note }}</p>
           <p class="card-text"><b>Link:</b> <a href="{{ game.link }}">{{ game.link }}</a></p>
           {% elif game.wishlist_user == True %}
-          <p class="card-text"><b>Cost:</b> {{ game.cost }}</p>
+          <p class="card-text"><b>Cost:</b>  <b>~</b>  <b>$</b>{{ game.cost }}</p>
           <p class="card-text"><b>Notes:</b> {{ game.note }}</p>
           <p class="card-text"><b>Link:</b> <a href="{{ game.link }}">{{ game.link }}</a></p>
           {% endif %}      
