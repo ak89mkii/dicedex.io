@@ -28,7 +28,7 @@ urlpatterns = [
     path('themes/<int:pk>/update/', views.ThemeUpdate.as_view(), name='themes_update'),
 
     # event
-    path('event/', views.library_index, name='event'),
+    path('event/', views.event, name='event'),
 
 
     # wishlist

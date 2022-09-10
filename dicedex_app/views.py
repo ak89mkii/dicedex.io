@@ -41,7 +41,7 @@ def groups(request):
 @login_required
 def library_index(request):
     not_form = 'not_form'
-    games = Game.objects.filter(user=request.user).order_by('title')
+    games = Game.objects.filter(user=request.user, wishlist_user=False).order_by('title')
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
     context = ['Coffee', 'Personal']
@@ -53,7 +53,7 @@ def library_index(request):
 @login_required
 def library_index_01(request):
     not_form = 'not_form'
-    games = Game.objects.filter(coffee_group=True).order_by('title')
+    games = Game.objects.filter(coffee_group=True, wishlist_user=False).order_by('title')
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
     context = 'Coffee'
@@ -65,7 +65,7 @@ def library_index_01(request):
 @login_required
 def library_index_02(request):
     not_form = 'not_form'
-    games = Game.objects.filter(hoth_group=True).order_by('title')
+    games = Game.objects.filter(hoth_group=True, wishlist_user=False).order_by('title')
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
     context = 'Hoth'
@@ -77,7 +77,7 @@ def library_index_02(request):
 @login_required
 def library_index_03(request):
     not_form = 'not_form'
-    games = Game.objects.filter(gundam_group=True).order_by('title')
+    games = Game.objects.filter(gundam_group=True, wishlist_user=False).order_by('title')
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
     context = 'Gundam'
@@ -89,7 +89,7 @@ def library_index_03(request):
 @login_required
 def event(request):
     not_form = 'not_form'
-    games = Game.objects.filter(gundam_group=True).order_by('title')
+    games = Game.objects.filter(event=True).order_by('title')
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
     context = ['Coffee', 'Event']
@@ -122,7 +122,7 @@ class GameCreate(LoginRequiredMixin, CreateView):
 
 class GameUpdate(LoginRequiredMixin, UpdateView):
     model = Game
-    fields = ['title', 'genre', 'min', 'max', 'length', 'image', 'type', 'note', 'link', 'coffee_group', 'hoth_group', 'gundam_group']
+    fields = ['title', 'genre', 'min', 'max', 'length', 'image', 'type', 'note', 'cost', 'link', 'event', 'wishlist_user', 'coffee_group', 'hoth_group', 'gundam_group']
 
 class GameDelete(LoginRequiredMixin, DeleteView):
     model = Game
