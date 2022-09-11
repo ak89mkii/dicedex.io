@@ -15,7 +15,10 @@
 - Django
 - PostgreSQL
 #### Packages:
-
+// https://pypi.org/project/dj-database-url/
+// https://pypi.org/project/django-heroku/
+// https://gunicorn.org/
+// http://whitenoise.evans.io/en/stable/django.html
 #### Version Control:
 - Git
 - GitHub
@@ -28,7 +31,7 @@
 #### Deployment:
 // https://devcenter.heroku.com/articles/procfile
 // https://devcenter.heroku.com/articles/python-gunicorn
-//
+// https://www.youtube.com/watch?v=TFFtDLZnbSs
 #### Depoyment Troubleshooting:
 //https://devcenter.heroku.com/articles/django-app-configuration
 #### Information References:
