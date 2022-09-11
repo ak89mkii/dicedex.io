@@ -48,11 +48,11 @@
 <!-- <container> -->
   {% if context.1 != 'Event' %}
   <div class="d-grid gap-2 col-3 mx-auto">
-    <a href="http://127.0.0.1:8000/games/create/" class="btn btn-primary btn-lg">Add New Game</a>
+    <a href="{% url 'games_create' %}" class="btn btn-primary btn-lg">Add New Game</a>
   </div>
   {% elif context.1 == 'Event' %}
   <div class="d-grid gap-2 col-3 mx-auto">
-    <a href="http://127.0.0.1:8000/library/" class="btn btn-primary btn-lg">Back to Library</a>
+    <a href="{% url 'library' %}" class="btn btn-primary btn-lg">Back to Library</a>
   </div>
   {% endif %}
 
