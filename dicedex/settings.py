@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+from operator import truediv
 import os
 from pathlib import Path
 from dotenv import load_dotenv, find_dotenv
@@ -35,7 +36,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = ["*"]
 
-DEBUG = False
+DEBUG = True
 
 
 # Application definition
