@@ -65,7 +65,7 @@
 
     {% for game in games %}
     <div class="col">
-      <div class="card border-dark mb-3 mx-auto h-100" >
+      <div class="card {{ game.color }} mb-3 mx-auto h-100" >
         <img src={{ game.image }} class="card-img-top" alt="...">
         <div class="card-body">
           <h4 class="card-title">{{ game.title }}</h4>
@@ -90,7 +90,7 @@
           {% endif %}      
         </div>
         <div class="card-footer">
-          <p class="text-muted">Last Updated: {{ game.timestamp }}</p>
+          <p class="text-muted">Added to DiceDex: {{ game.timestamp }}</p>
         </div>
       </div>   
     </div> 

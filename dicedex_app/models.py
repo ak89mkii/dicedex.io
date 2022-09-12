@@ -14,6 +14,17 @@ COLORS = (
     ('Light', 'Light')
 )
 
+CARDS = (
+    ('border-dark', 'White'),
+    ('text-white bg-primary', 'Blue'),
+    ('text-white bg-secondary', 'Grey'),
+    ('text-white bg-success', 'Green'),
+    ('text-white bg-danger', 'Red'),
+    # ('text-white bg-warning', 'Yellow'),
+    ('text-white bg-info', 'Aqua'),
+    # ('text-white bg-dark', 'Dark Grey')
+)
+
 
 class Game(models.Model):
     title = models.CharField(max_length=100, default="None")
@@ -29,6 +40,11 @@ class Game(models.Model):
     )
     note = models.CharField(max_length=1000, default="None")
     link = models.CharField(max_length=1000, default="None")
+    color = models.CharField(
+        max_length=30,
+        choices=CARDS,
+        default=CARDS[0][0]
+    )
     cost = models.IntegerField(default=0)
     timestamp = models.DateField(auto_now_add=True)
     # Also for "owner field"
