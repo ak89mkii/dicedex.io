@@ -35,7 +35,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = ["*"]
 
-DEBUG = True
+DEBUG = False
 
 
 # Application definition
@@ -93,9 +93,9 @@ DATABASES = {
     }
 }
 
-# import dj_database_url
+import dj_database_url
 
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 
 # Password validation
