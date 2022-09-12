@@ -48,17 +48,18 @@
         <ul class="nav">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Lists</a>
-                <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'event' %}"><b>Bring to Event</b></a></li>
-                <li><a class="dropdown-item" href="{% url 'library' %}"><b>My Personal Collection</b></a></li>
-                <li><a class="dropdown-item" href="{% url 'wishlist_user' %}"><b>My Wishlist</b></a></li>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><p class="dropdown-item" href="{% url 'event' %}"><b>Bring to Event</b></p></li>
+                    <li><p class="dropdown-item" href="{% url 'library' %}"><b>My Personal Collection</b></p></li>
+                    <li><p class="dropdown-item" href="{% url 'wishlist_user' %}"><b>My Wishlist</b></p></li>
                 </ul>
             </li>
         </ul>
+        
         <ul class="nav">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ user }}</a>
-                <ul class="dropdown-menu dropdown-menu-end">
+                <ul class="dropdown-menu dropdown-menu-lg-end">
                     <li><p class="dropdown-item"><b>User Name</b>: {{ user }}</p></li>
                     <li><p class="dropdown-item"><b>Group(s)</b>: {{ groups }}</p></li>
                     <hr></hr>
@@ -66,6 +67,7 @@
                 </ul>
             </li>
         </ul>
+    </div>
         
         {% else %}
 
