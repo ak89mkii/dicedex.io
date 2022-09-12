@@ -11,9 +11,11 @@ from django.contrib.auth.models import Group
 
 # Create your views here.
 
+# Using this view with "home_logged_in" because "l" breaks page when logged out.
 def home(request):
     not_form = 'not_form'
-    return render(request, 'home.html', { 'not_form' : not_form })   
+    context = 'Home'
+    return render(request, 'home.html', { 'not_form' : not_form, 'context' : context })   
 
 @login_required
 def home_logged_in(request):
