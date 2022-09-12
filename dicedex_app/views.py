@@ -46,7 +46,7 @@ def library_index(request):
     games = Game.objects.filter(user=request.user, wishlist_user=False).order_by('title')
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
-    context = ['Coffee', 'Personal']
+    context = ['Personal', 'Personal']
     switches = Theme.objects.filter(user=request.user).order_by('color')
     # References the last Theme entry to change the "background" color id.
     themes = Theme.objects.filter(user=request.user).order_by('color').last()
@@ -94,7 +94,7 @@ def event(request):
     games = Game.objects.filter(event=True).order_by('title')
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
-    context = ['Coffee', 'Event']
+    context = ['Personal', 'Event']
     switches = Theme.objects.filter(user=request.user).order_by('color')
     # References the last Theme entry to change the "background" color id.
     themes = Theme.objects.filter(user=request.user).order_by('color').last()
@@ -106,7 +106,7 @@ def wishlist_user(request):
     games = Game.objects.filter(wishlist_user=True, user=request.user).order_by('title')
     l = request.user.groups.values_list('name',flat = True)
     groups = list(l)
-    context = ['Coffee', 'Wishlist User']
+    context = ['Personal', 'Wishlist User']
     switches = Theme.objects.filter(user=request.user).order_by('color')
     # References the last Theme entry to change the "background" color id.
     themes = Theme.objects.filter(user=request.user).order_by('color').last()
@@ -128,7 +128,7 @@ class GameUpdate(LoginRequiredMixin, UpdateView):
 
 class GameDelete(LoginRequiredMixin, DeleteView):
     model = Game
-    success_url = '/groups/'
+    success_url = '/home_logged_in/'
 
 
 # Theme
@@ -146,7 +146,7 @@ class ThemeUpdate(LoginRequiredMixin, UpdateView):
 
 class ThemeDelete(LoginRequiredMixin, DeleteView):
     model = Theme
-    success_url = '/'
+    success_url = '/home_logged_in/'
 
 
 # Signup
