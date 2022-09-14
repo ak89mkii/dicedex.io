@@ -17,7 +17,8 @@
     {% endif %}
     <div class="container">
         <div class="card mb-3">
-            <img src="https://lolstatic-a.akamaihd.net/frontpage/apps/prod/rg-mechs-vs-minions/en_US/a8667cf30625bbadf4c0d1bb266ac75613f69b3f/assets/img/share/mechs-vs-minions-1200x630.jpg" class="card-img-top" alt="...">
+            <img src="{% static 'file.png' %}"
+            class="card-img-top" alt="...">
             <div class="card-body">
                 <form action="" method="post">
                     {% csrf_token %}
