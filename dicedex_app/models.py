@@ -32,7 +32,7 @@ class Game(models.Model):
     min = models.CharField(max_length=100, default="None")
     max = models.CharField(max_length=100, default="None")
     length = models.IntegerField(default=0)
-    image = models.CharField(max_length=1000, default="static/06.png")
+    image = models.CharField(max_length=1000, default="/static/06.png")
     type = models.CharField(
         max_length=30,
         choices=TYPES,
