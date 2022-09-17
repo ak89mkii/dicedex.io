@@ -5,8 +5,6 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models.functions import Now
-from django.contrib.auth.models import Group
 
 
 # Create your views here.
