@@ -41,7 +41,6 @@
 <div id="title">
   <p>Personal Wishlist</p>
 </div>
-<br>
 {% endif %}
 
 <!-- Add Button -->
@@ -102,5 +101,13 @@
 
 {% endif %}
 {% endfor %}
+
+{% if group != context %}
+<br>
+<div id="title">
+  <p>Not Registered With This Group</p>
+</div>
+<br>
+{% endif %}
 
 {% endblock %}

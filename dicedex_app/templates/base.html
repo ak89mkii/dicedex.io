@@ -45,7 +45,7 @@
         {% endfor %}
         {% endif %}
         
-        <!-- Navbar (after "Mode" button). -->
+        <!-- Navbar ("Lists" Dropdown). -->
         <a class="nav-link" href="{% url 'groups' %}">Groups</a>
         <ul class="nav">
             <li class="nav-item dropdown">
@@ -57,7 +57,8 @@
                 </ul>
             </li>
         </ul>
-        
+                
+        <!-- Navbar (User Info Dropedown and Log Out). -->
         <ul class="nav">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ user }}</a>
