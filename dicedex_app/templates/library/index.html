@@ -103,11 +103,14 @@
 {% endfor %}
 
 {% if group != context %}
-<br>
-<div id="title">
-  <p>Not Registered With This Group</p>
-</div>
-<br>
+  {% if context.0 != 'Personal' %}
+  <br>
+  <div id="title">
+    <p>Not Registered With This Group</p>
+  </div>
+  <br>
+  {% endif %}
+
 {% endif %}
 
 {% endblock %}
