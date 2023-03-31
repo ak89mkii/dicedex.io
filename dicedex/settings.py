@@ -34,8 +34,8 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = ["*"]
 
-DEBUG = False
-
+# DEBUG = False
+DEBUG = True
 
 # Application definition
 
