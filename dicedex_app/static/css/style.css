@@ -82,8 +82,9 @@ body {
 }
 
 #bGGLink {
-    width: 70px;
+    width: 80px;
     height: 40px;
     border-style: solid;
-    border-radius: 15px;
+    border-color: black;
+    border-radius: 10px;
 }
