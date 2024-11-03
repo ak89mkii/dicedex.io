@@ -80,7 +80,8 @@
           {% elif game.wishlist_user == True %}
           <p class="card-text"><b>Cost:</b>  <b>~</b>  <b>$</b>{{ game.cost }}</p>
           <p class="card-text"><b>Notes:</b> {{ game.note }}</p>
-          <p class="card-text"><b>Link:</b> <a href="{{ game.link }}">{{ game.link }}</a></p>
+          <!-- <p class="card-text"><b>Link:</b> <a href="{{ game.link }}">{{ game.link }}</a></p> -->
+          <a href="{{ game.link }}"><img src="https://ignacytrzewiczek.com/wp-content/uploads/2022/10/BGG.jpeg"/></a>
           {% endif %}      
           {% if game.user == user %}
           <a href="{% url 'games_update' game.id %}" class="btn btn-dark">Edit</a>
