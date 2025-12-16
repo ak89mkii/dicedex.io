@@ -56,6 +56,7 @@ body {
     width: 100%;
     height: 80vw;
     /* object-fit: cover; */
+    border-bottom: 2px solid black;
 }
 
 @media screen and (min-width: 767px) {
@@ -78,7 +79,7 @@ body {
 
 .card-title {
     text-align: center;
-    text-shadow: #08f9a0;
+    font-weight: bold;
 }
 
 /*  Error 404  */
