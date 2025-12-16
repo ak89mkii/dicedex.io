@@ -51,6 +51,12 @@ body {
 
 /* Library: */
 
+.card {
+    border-style: solid;
+    border-width: 5px;
+    border-color: #08f9a0;
+}
+
 .card-img-top {
     /* margin: 2px; */
     width: 100%;
@@ -80,6 +86,7 @@ body {
 .card-title {
     text-align: center;
     font-weight: bold;
+    background-color: #08f9a0;
 }
 
 /*  Error 404  */
