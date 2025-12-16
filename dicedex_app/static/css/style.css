@@ -35,7 +35,8 @@ body {
 }
 
 #Light {
-    background-color: rgb(242, 242, 245);
+    /* background-color: rgb(242, 242, 245); */
+    background-color: rgb(255, 255, 255);
 }
 
 
@@ -87,6 +88,7 @@ body {
     text-align: center;
     font-weight: bold;
     background-color: #08f9a0;
+    padding: 10px;
 }
 
 /*  Error 404  */
